@@ -30,4 +30,8 @@ print(df.columns.tolist())
 dirty_spend_mask = df['spend'].astype(str).str.contains(r'\$')
 print(df.loc[dirty_spend_mask, ['campaign_id', 'spend']].head(3))
 
+df['spend'] = df['spend'].astype(str).str.replace(fr'[^\d.-]', '', regex=True)
+df['spend'] = pd.to_numeric(df['spend'])
 
+print("Values fix applied!")
+print(df.loc[dirty_spend_mask, ['campaign_id', 'spend']].head(3))
