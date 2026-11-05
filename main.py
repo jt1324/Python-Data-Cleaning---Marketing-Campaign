@@ -16,3 +16,13 @@ pd.set_option("display.max_rows", 20)       # show 20 rows, not all 2,020
 
 print(df.head(20).to_string())
 
+
+# Header cleaning
+
+print(df.columns.tolist())
+
+df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_')
+
+print("Headers fix applied!")
+print(df.columns.tolist())
+
