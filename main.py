@@ -35,3 +35,10 @@ df['spend'] = pd.to_numeric(df['spend'])
 
 print("Values fix applied!")
 print(df.loc[dirty_spend_mask, ['campaign_id', 'spend']].head(3))
+
+
+# Categorical typos (Fuzzy logic)
+print(df['channel'].unique())
+
+
+
