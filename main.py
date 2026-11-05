@@ -53,3 +53,8 @@ df['channel'] = df['channel'].replace(cleanup_map)
 
 print("Channels fix applied!")
 print(df['channel'].unique())
+
+
+# Handling mixed booleand
+print(df['active'].unique())
+
