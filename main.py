@@ -58,3 +58,17 @@ print(df['channel'].unique())
 # Handling mixed booleand
 print(df['active'].unique())
 
+bool_map = {
+    '0': 'False',
+    0: 'False',
+    'No': 'False',
+    'Yes': 'True',
+    '1': 'True',
+    'Y': 'True',
+    1: 'True',
+}
+
+df['active'] = df['active'].map(bool_map).fillna(False).astype(bool)
+
+print("Active fix applied!")
+print(df['active'].unique())
