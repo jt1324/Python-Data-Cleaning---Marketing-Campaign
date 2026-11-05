@@ -18,11 +18,16 @@ print(df.head(20).to_string())
 
 
 # Header cleaning
-
 print(df.columns.tolist())
 
 df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_')
 
 print("Headers fix applied!")
 print(df.columns.tolist())
+
+
+# Type conversion & currency cleaning
+dirty_spend_mask = df['spend'].astype(str).str.contains(r'\$')
+print(df.loc[dirty_spend_mask, ['campaign_id', 'spend']].head(3))
+
 
