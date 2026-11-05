@@ -40,5 +40,16 @@ print(df.loc[dirty_spend_mask, ['campaign_id', 'spend']].head(3))
 # Categorical typos (Fuzzy logic)
 print(df['channel'].unique())
 
+cleanup_map = {
+    'Facebok': 'Facebook',
+    'Insta_gram': 'Instagram',
+    'Gogle': 'Google Ads',
+    'Tik_Tok': 'TikTok',
+    'E-mail': 'Email',
+    'nan': np.nan
+}
 
+df['channel'] = df['channel'].replace(cleanup_map)
 
+print("Channels fix applied!")
+print(df['channel'].unique())
